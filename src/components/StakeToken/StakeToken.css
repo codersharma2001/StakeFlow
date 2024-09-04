@@ -1,0 +1,95 @@
+.token-amount-form,
+.stake-amount-form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 36px;
+}
+
+.token-input-label,
+.stake-input-label {
+    opacity: 0.8;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.token-amount-form input,
+.stake-amount-form input {
+    border: none;
+    background-color: var(--bg-color);
+    padding: 16px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+.token-amount-form input:focus,
+.stake-amount-form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+    animation: glowPulse 1.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from { box-shadow: 0 0 5px var(--primary-color); }
+    to { box-shadow: 0 0 15px var(--primary-color); }
+}
+
+.token-amount-form input:hover,
+.stake-amount-form input:hover {
+    border-color: var(--primary-color);
+}
+
+.token-amount-form Button,
+.stake-amount-form Button {
+    width: 100%;
+    padding: 14px 0;
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.token-amount-form Button::after,
+.stake-amount-form Button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.token-amount-form Button:hover::after,
+.stake-amount-form Button:hover::after {
+    opacity: 1;
+    animation: rippleEffect 0.8s linear;
+}
+
+@keyframes rippleEffect {
+    from { transform: scale(0); }
+    to { transform: scale(2); opacity: 0; }
+}
+
+.token-amount-form Button:hover,
+.stake-amount-form Button:hover {
+    background-color: #7c4dff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}

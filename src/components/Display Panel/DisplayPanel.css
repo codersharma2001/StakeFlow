@@ -1,0 +1,84 @@
+.staked-amount,
+.reward-rate,
+.earned-reward {
+    width: 500px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 28px;
+}
+
+.staked-amount {
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+
+.earned-reward {
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.top-wrapper {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: all 0.3s ease;
+    animation: pulseScale 2s infinite alternate;
+}
+
+@keyframes pulseScale {
+    from { transform: scale(1); }
+    to { transform: scale(1.02); }
+}
+
+.top-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 12px var(--shadow-color);
+}
+
+.staked-amount,
+.reward-rate,
+.earned-reward {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.staked-amount::after,
+.reward-rate::after,
+.earned-reward::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.staked-amount:hover::after,
+.reward-rate:hover::after,
+.earned-reward:hover::after {
+    opacity: 1;
+    animation: ripple 1s linear;
+}
+
+@keyframes ripple {
+    from { transform: scale(0); }
+    to { transform: scale(2); opacity: 0; }
+}
+
+.staked-amount:hover,
+.reward-rate:hover,
+.earned-reward:hover {
+    background-color: rgba(98, 0, 238, 0.05);
+}
